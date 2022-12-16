@@ -43,7 +43,7 @@ export interface iProduct{
     img: string;
     name: string;
     price: number;
-    count?: number 
+    count?: number;
 }
 
 export interface iCurrentCart{
@@ -63,10 +63,7 @@ export interface iGetVerificationUser{
 }
 
 export interface iGetVerificationproducts{
-  password: string;
-  id: number;
-  name: string;
-  email: string;
+  data: iProduct[]
 }
 
 export interface iUserContext {

@@ -26,13 +26,13 @@ export const CartProvider = ({ children }: iChildrenProps) => {
       }
 
       try {
-        const response = await api.get<iGetVerificationproducts>("/products", {
+        const { data } = await api.get("/products", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
 
-        setProducts(response.data);
+        setProducts(data);
       } catch (error) {
         console.log(error);
       } finally {
