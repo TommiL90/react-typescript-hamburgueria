@@ -15,7 +15,13 @@ const Cart = () => {
   } = useContext(CartContext);
 
   const totalPrice = currentCart.reduce((av, cv) => {
-    return av + (cv.price*cv.count);
+    
+    if(cv.count){
+      return av + (cv.price*cv.count)
+    }else{
+      return 0
+    }
+
   }, 0);
 
   const ClearLists = () => {
@@ -43,7 +49,7 @@ console.log(currentCart)
             <>
               <ProductsCart>
           {currentCart.map(({ id, img, name, count }) => (
-            <CardCart key={id} id={id} img={img} name={name} count={count} />
+            count && <CardCart key={id} id={id} img={img} name={name} count={count} />
           ))}
         </ProductsCart>
         <FooterCart>
