@@ -11,5 +11,18 @@
   "devDependencies": {
     "typescript": "^4.9.3",
     "vite": "^4.0.0"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^2.9.10",
+    "@types/axios": "^0.14.0",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.26",
+    "axios": "^1.2.1",
+    "react-hook-form": "^7.40.0",
+    "react-icons": "^4.7.1",
+    "react-router-dom": "^6.5.0",
+    "react-toastify": "^9.1.1",
+    "styled-components": "^5.3.6",
+    "yup": "^0.32.11"
   }
 }
