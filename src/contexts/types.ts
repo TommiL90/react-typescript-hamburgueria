@@ -43,7 +43,7 @@ export interface iProduct{
     img: string;
     name: string;
     price: number;
-    count?: number 
+    count?: number | undefined
 }
 
 export interface iCurrentCart{

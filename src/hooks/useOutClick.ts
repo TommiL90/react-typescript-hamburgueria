@@ -1,30 +1,32 @@
-import { useEffect, useRef } from "react"
+
+export const opa = ""
+// import { useEffect, useRef } from "react"
 
 
 
-export const useOutClick = (callback: { (): string; (): void }) => {
+// export const useOutClick = (callback: { (): string; (): void }) => {
 
-    const ref = useRef(null)
+//     const ref = useRef(null)
 
-    useEffect(()=> {
+//     useEffect(()=> {
 
-        function modalOutClick (event: any){
+//         function modalOutClick (event: any){
 
-            const target = event.target
-            const element = ref.current
+//             const target = event.target
+//             const element = ref.current
 
-            if ( !element.contains(target)) {
-                callback()
-             }
-          }
-          window.addEventListener("mousedown", modalOutClick)
+//             if ( !element.contains(target)) {
+//                 callback()
+//              }
+//           }
+//           window.addEventListener("mousedown", modalOutClick)
     
-          return () => {
-             window.removeEventListener("mousedown", modalOutClick)
+//           return () => {
+//              window.removeEventListener("mousedown", modalOutClick)
 
-        }
+//         }
 
-    }, [])
+//     }, [])
 
-    return ref
-}
+//     return ref
+// }
