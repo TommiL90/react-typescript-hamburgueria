@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { api } from "../services/api";
-import { iCartContext, iChildrenProps, iCurrentCart, iProduct } from "./types";
+import { iCartContext, iChildrenProps, iCurrentCart, iGetVerificationproducts, iProduct } from "./types";
 
 
 export const CartContext = createContext({} as iCartContext);
@@ -21,7 +21,7 @@ export const CartProvider = ({ children }: iChildrenProps) => {
       }
 
       try {
-        const response = await api.get("/products", {
+        const response = await api.get<iGetVerificationproducts>("/products", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

@@ -55,6 +55,20 @@ export interface iCurrentCart{
     count?: number;
 }
 
+export interface iGetVerificationUser{
+  password: string;
+  id: number;
+  name: string;
+  email: string;
+}
+
+export interface iGetVerificationproducts{
+  password: string;
+  id: number;
+  name: string;
+  email: string;
+}
+
 export interface iUserContext {
   currentTheme: string;
   setCurrentTheme: React.Dispatch<React.SetStateAction<string>>;

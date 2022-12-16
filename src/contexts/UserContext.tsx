@@ -2,7 +2,7 @@ import { createContext, useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../services/api";
-import { iUserContext, iChildrenProps, iUserProps, iDataRegister, iDataResponseLogin, iDataLogin, iDataResponseRegister } from "./types";
+import { iUserContext, iChildrenProps, iUserProps, iDataRegister, iDataResponseLogin, iDataLogin, iDataResponseRegister,  iGetVerificationUser } from "./types";
 
 
 
@@ -35,7 +35,7 @@ export const UserProvider = ({ children }: iChildrenProps) => {
   
       try {
         
-        const response = await api.get(`/users/${id}`, {
+        const response = await api.get<iGetVerificationUser>(`/users/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
