@@ -14,10 +14,11 @@ export const CartContext = createContext({} as iCartContext);
 export const CartProvider = ({ children }: iChildrenProps) => {
   const [products, setProducts] = useState([] as iProduct[]);
   const [currentCart, setCurrentCart] = useState([] as iCurrentCart[]);
-  const [filteredList, setFilteredList] = useState([] as iCurrentCart[]);
+  const [refresh, setRefresh] = useState(false)
   const [showCart, setShowCart] = useState(false);
 
   useEffect(() => {
+
     async function loadproducts() {
       const token = localStorage.getItem("@BurguerKenzie:Token");
 
@@ -26,7 +27,7 @@ export const CartProvider = ({ children }: iChildrenProps) => {
       }
 
       try {
-        const { data } = await api.get("/products", {
+        const { data } = await api.get<iGetVerificationproducts[]>("/products", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -39,7 +40,7 @@ export const CartProvider = ({ children }: iChildrenProps) => {
       }
     }
     loadproducts();
-  }, []);
+  }, [refresh]);
 
   function handleAddProduct(product: iProduct) {
     const productExists: any = currentCart.find((e) => e.id === product.id);
@@ -97,6 +98,7 @@ export const CartProvider = ({ children }: iChildrenProps) => {
         setShowCart,
         addSameProduct,
         subSameProduct,
+        setRefresh
       }}
     >
       {children}

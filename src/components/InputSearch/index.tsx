@@ -14,7 +14,7 @@ interface iFormSearch {
 
 function SearchForm() {
 
-  const { products, setProducts } = useContext(CartContext)
+  const { products, setProducts, setRefresh } = useContext(CartContext)
 
   const { register, handleSubmit, reset } = useForm<iFormSearch>();
 
@@ -24,7 +24,7 @@ function SearchForm() {
 
     const results = products.filter( e => e.name.toLowerCase().includes(data.value.toLowerCase()) )
     
-
+    
     if(results.length){
       setProducts(results)
     }else{

@@ -63,7 +63,11 @@ export interface iGetVerificationUser{
 }
 
 export interface iGetVerificationproducts{
-  data: iProduct[]
+  id: number;
+  name: string;
+  category: string;
+  price: number;
+  img: string;
 }
 
 export interface iUserContext {
@@ -88,7 +92,7 @@ export interface iCartContext{
     setShowCart: React.Dispatch<React.SetStateAction<boolean>>;
     addSameProduct: (productId: number) => void;
     subSameProduct: (productId: number) => void;
-
+    setRefresh: React.Dispatch<React.SetStateAction<boolean>>;
    
 }
 
