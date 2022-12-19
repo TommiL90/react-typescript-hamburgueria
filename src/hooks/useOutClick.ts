@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react"
 
 
 
-export const useOutClick  = (callback: { (): string; (): void }) => {
+export const useOutClick  = (callback: { (): void }) => {
 
     const ref = useRef<HTMLDivElement>(null)
 

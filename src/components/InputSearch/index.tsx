@@ -16,7 +16,7 @@ interface iFormSearch {
 
 function SearchForm() {
 
-  const { products, setProducts, setRefresh } = useContext(CartContext)
+  const { products, setProducts } = useContext(CartContext)
 
   const { register, handleSubmit, reset } = useForm<iFormSearch>();
 
@@ -42,6 +42,7 @@ function SearchForm() {
         placeholder="Digite aquí sua pesquiça"
         required
         {...register("value")}
+        onChange={()=> console.log("opa")}
       />
 
       <button type="submit">

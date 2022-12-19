@@ -36,6 +36,25 @@ export const StyledHeader = styled.header`
             flex-direction: row;
         }
     }
+
+    .cart{
+        position: relative;
+
+        p{
+            position: absolute;
+            top: -15px;
+            left: -9px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            font-size: 1.2rem;
+            color: ${({theme})=> theme.gray0};;
+            background-color: ${({theme})=> theme.primaryColor};
+        }
+    }
 `
 
 export const IconBtn = styled.button`

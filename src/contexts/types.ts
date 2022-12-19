@@ -92,7 +92,6 @@ export interface iCartContext{
     setShowCart: React.Dispatch<React.SetStateAction<boolean>>;
     addSameProduct: (productId: number) => void;
     subSameProduct: (productId: number) => void;
-    setRefresh: React.Dispatch<React.SetStateAction<boolean>>;
    
 }
 

@@ -98,7 +98,7 @@ export const CartProvider = ({ children }: iChildrenProps) => {
         setShowCart,
         addSameProduct,
         subSameProduct,
-        setRefresh
+
       }}
     >
       {children}

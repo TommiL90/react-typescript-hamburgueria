@@ -20,3 +20,15 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({ legend, type, placehol
 export default Input
 
 // onChange={(event) => callback(event.target.value
+
+/* alt =>
+interface InputProps{
+  legen?: string;
+  register: UseFormRegisterReturn;
+
+}
+
+no Input => register={register("algo")}
+<input {...register} />
+
+*/
