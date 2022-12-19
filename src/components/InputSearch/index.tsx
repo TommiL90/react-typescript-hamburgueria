@@ -12,6 +12,8 @@ interface iFormSearch {
   value: string;
 }
 
+
+
 function SearchForm() {
 
   const { products, setProducts, setRefresh } = useContext(CartContext)

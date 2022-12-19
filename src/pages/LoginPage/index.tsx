@@ -59,11 +59,11 @@ const LoginPage = () => {
         
                         <StyledTitle tag="h3" fontSize="h3" >Login</StyledTitle>
                         <form onSubmit={handleSubmit(submit)}>
-                        <Input legend="E-mail" type="email" placeholder="Digite seu Email" register={register("email")}/>
+                        <Input legend="E-mail" type="email" placeholder="Digite seu Email" {...register("email")}/>
                         {errors.email && <small>{errors.email.message}</small>}
 
 
-                        <Input legend="Senha" type="password" placeholder="Digite sua senha" register={register("password")}/>
+                        <Input legend="Senha" type="password" placeholder="Digite sua senha" {...register("password")}/>
                         {errors.password && <small>{errors.password.message}</small>}
 
 

@@ -77,7 +77,7 @@ const RegisterPage = () => {
                 legend="Nome"
                 type="text"
                 placeholder="Digite seu nome"
-                register={register("name")}
+                {...register("name")}
               />
               {errors.name && <small>{errors.name.message}</small>}
 
@@ -85,7 +85,7 @@ const RegisterPage = () => {
                 legend="Email"
                 type="email"
                 placeholder="Digite seu Email"
-                register={register("email")}
+                {...register("email")}
               />
               {errors.email && <small>{errors.email.message}</small>}
 
@@ -93,7 +93,7 @@ const RegisterPage = () => {
                 legend="Senha"
                 type="password"
                 placeholder="Digite senha"
-                register={register("password")}
+               {...register("password")}
               />
               {errors.password && <small>{errors.password.message}</small>}
 
@@ -101,7 +101,7 @@ const RegisterPage = () => {
                 legend="Confirmar Senha"
                 type="password"
                 placeholder="Confirme senha"
-                register={register("repeatPassword")}
+                {...register("repeatPassword")}
               />
               {errors.repeatPassword && (
                 <small>{errors.repeatPassword.message}</small>
