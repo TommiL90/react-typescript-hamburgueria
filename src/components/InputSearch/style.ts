@@ -6,7 +6,8 @@ export const StyledFormSearch = styled.form`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 365px;
+    max-width: 365px;
+    width: 100%;
     height: 60px;
     padding: 0 1rem;
     border: 2px solid ${({theme})=> theme.gray1};
@@ -40,7 +41,7 @@ export const StyledFormSearch = styled.form`
     }
 
     button{
-    width: 107px;
+    width: 35%;
     height: 40px;
     font-size: 2.2rem;
     display: flex;

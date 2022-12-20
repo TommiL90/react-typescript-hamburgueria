@@ -85,6 +85,8 @@ export interface iUserContext {
 export interface iCartContext{
     products: iProduct[];
     setProducts: React.Dispatch<React.SetStateAction<iProduct[]>>;
+    filteredList: iProduct[];
+    setFilteredList: React.Dispatch<React.SetStateAction<iProduct[]>>;
     currentCart: iCurrentCart[];
     setCurrentCart: React.Dispatch<React.SetStateAction<iCurrentCart[]>>;
     handleAddProduct: (productId: iProduct) => void;

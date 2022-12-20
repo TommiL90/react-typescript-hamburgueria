@@ -13,8 +13,8 @@ export const CartContext = createContext({} as iCartContext);
 
 export const CartProvider = ({ children }: iChildrenProps) => {
   const [products, setProducts] = useState([] as iProduct[]);
+  const [filteredList, setFilteredList] = useState([] as iProduct[]);
   const [currentCart, setCurrentCart] = useState([] as iCurrentCart[]);
-  const [refresh, setRefresh] = useState(false)
   const [showCart, setShowCart] = useState(false);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export const CartProvider = ({ children }: iChildrenProps) => {
       }
     }
     loadproducts();
-  }, [refresh]);
+  }, []);
 
   function handleAddProduct(product: iProduct) {
     const productExists: any = currentCart.find((e) => e.id === product.id);
@@ -91,6 +91,8 @@ export const CartProvider = ({ children }: iChildrenProps) => {
       value={{
         products,
         setProducts,
+        filteredList,
+        setFilteredList,
         currentCart,
         setCurrentCart,
         handleAddProduct,

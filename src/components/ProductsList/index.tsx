@@ -5,12 +5,19 @@ import { StyledProductsList } from './style'
 
 const ProductsList = () => {
 
-  const { products } = useContext(CartContext)
+  const { products, filteredList } = useContext(CartContext)
   
 
   return (
+    
     <StyledProductsList>
-        {products.map( product => <ProductCard key={product.id} product={product} />)}
+        {
+          filteredList.length ? (
+            filteredList.map( product => <ProductCard key={product.id} product={product} />)
+          ) : (
+            products.map( product => <ProductCard key={product.id} product={product} />)
+          )
+        }
     </StyledProductsList>
   )
 }

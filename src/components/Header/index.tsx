@@ -15,7 +15,7 @@ const Header = () => {
 
   const navigate = useNavigate()
   const { currentCart } = useContext(CartContext)
-  const { showCart, setShowCart, products, setProducts } = useContext(CartContext);
+  const { showCart, setShowCart, products, setFilteredList } = useContext(CartContext);
   const [showFormSearh, setShowFormSearch] = useState(false);
 
 
@@ -30,7 +30,7 @@ const Header = () => {
   }, 0);
 
   const handleReset = () => {
-      setProducts(products)
+      setFilteredList([])
       setShowFormSearch(false)
   }
 

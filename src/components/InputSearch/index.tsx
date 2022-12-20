@@ -16,7 +16,7 @@ interface iFormSearch {
 
 function SearchForm() {
 
-  const { products, setProducts } = useContext(CartContext)
+  const { products, setFilteredList } = useContext(CartContext)
 
   const { register, handleSubmit, reset } = useForm<iFormSearch>();
 
@@ -28,7 +28,7 @@ function SearchForm() {
     
     
     if(results.length){
-      setProducts(results)
+      setFilteredList(results)
     }else{
       toast.warn("Produto não encontrado")
      

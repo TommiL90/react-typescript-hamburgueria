@@ -28,7 +28,7 @@ export const StyledCard = styled.li`
     }
 
     img{
-       width: 25%;
+       width: 80px;
        background-color: #E0E0E0;
        border-radius: 4px;
        
@@ -36,7 +36,11 @@ export const StyledCard = styled.li`
 
     .box{
         display: flex;
-        border: 2px solid #E0E0E0;;
+        justify-content: center;
+        align-items: center;
+        height: 33px;
+        border: 2px solid #E0E0E0;
+        border-radius: 4px;
 
         button{
             width: 33px;
