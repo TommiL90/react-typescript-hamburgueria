@@ -27,7 +27,7 @@ const Cart = () => {
   const ClearLists = () => {
     setCurrentCart([]);
   };
-console.log(currentCart)
+
   return (
     <ModalDefault>
       <HeaderCart>

@@ -42,7 +42,6 @@ function SearchForm() {
         placeholder="Digite aquí sua pesquiça"
         required
         {...register("value")}
-        onChange={()=> console.log("opa")}
       />
 
       <button type="submit">
