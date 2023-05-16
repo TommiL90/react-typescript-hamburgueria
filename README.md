@@ -1,10 +1,10 @@
 
-# Hamburgueseria
-Mini Proyecto feito com Typescrypt + React. Foi usado algumas bibliotecas como React-Router-Dom, Styled-Components, React-hook-form + yup.
+# Hamburguers
+Mini project made with Typescript + React. Some libraries were used such as React-Router-Dom, Styled-Components, React-Hook-Form + Yup.
 
-usuario puede acceder a una pagina responsiva, cadastrarse, logar e adicioanr produtos ao carrinho de compras.
+Users can access a responsive page, register, log in, and add products to the shopping cart.
 
-Mini Projeto foi feito com a alvo de mostrar as habilidades básicas ao usar as tecnologías mencionadas.
+This mini project was created to showcase basic skills using the mentioned technologies.
 
 
 
