@@ -1,54 +1,55 @@
-import { FiSearch, FiLogOut } from "react-icons/fi";
-import { FaShoppingCart } from "react-icons/fa";
-import { Container } from "../../styles/Container";
-import Logo from "../Logo";
-import { IconBtn, StyledHeader } from "./style";
-import SearchForm from "../InputSearch";
-import { useContext, useState } from "react";
-import Cart from "../cart";
-import { CartContext } from "../../contexts/CartContext";
-import { StyledButton } from "../../styles/buttons";
-import { useNavigate } from "react-router-dom";
-
+import { FiSearch, FiLogOut } from 'react-icons/fi'
+import { FaShoppingCart } from 'react-icons/fa'
+import { Container } from '../../styles/Container'
+import Logo from '../Logo'
+import { IconBtn, StyledHeader } from './style'
+import SearchForm from '../InputSearch'
+import { useContext, useState } from 'react'
+import Cart from '../cart'
+import { CartContext } from '../../contexts/CartContext'
+import { StyledButton } from '../../styles/buttons'
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
-
   const navigate = useNavigate()
   const { currentCart } = useContext(CartContext)
-  const { showCart, setShowCart, products, setFilteredList } = useContext(CartContext);
-  const [showFormSearh, setShowFormSearch] = useState(false);
-
+  const { showCart, setShowCart, products, setFilteredList } =
+    useContext(CartContext)
+  const [showFormSearh, setShowFormSearch] = useState(false)
 
   const countSelectProducts = currentCart.reduce((av, cv) => {
-    
-    if(cv.count){
+    if (cv.count) {
       return av + cv.count
-    }else{
+    } else {
       return 0
     }
-
-  }, 0);
+  }, 0)
 
   const handleReset = () => {
-      setFilteredList([])
-      setShowFormSearch(false)
+    setFilteredList([])
+    setShowFormSearch(false)
   }
 
   const logOut = () => {
-
-      localStorage.removeItem("@BurguerKenzie:Token")
-      localStorage.removeItem("@BurguerKenzie:Id")
-      navigate("/login")
+    localStorage.removeItem('@BurguerKenzie:Token')
+    localStorage.removeItem('@BurguerKenzie:Id')
+    navigate('/login')
   }
 
   return (
     <StyledHeader>
       <Container className="containerHeader">
         <div>
-        <Logo />
-        { showFormSearh && <StyledButton 
-        onClick={handleReset}
-        buttonSize="default" buttonStyle="solidPrimary">Limpar pesquisa</StyledButton> }
+          <Logo />
+          {showFormSearh && (
+            <StyledButton
+              onClick={handleReset}
+              buttonSize="default"
+              buttonStyle="solidPrimary"
+            >
+              Limpar pesquisa
+            </StyledButton>
+          )}
         </div>
         <nav>
           {!showFormSearh ? (
@@ -57,9 +58,9 @@ const Header = () => {
                 <FiSearch />
               </IconBtn>
               <div className="cart">
-                { currentCart.length >= 1 && <p>{ countSelectProducts }</p> }
+                {currentCart.length >= 1 && <p>{countSelectProducts}</p>}
                 <IconBtn onClick={() => setShowCart(true)}>
-                <FaShoppingCart />
+                  <FaShoppingCart />
                 </IconBtn>
               </div>
               <IconBtn onClick={logOut}>
@@ -73,7 +74,7 @@ const Header = () => {
         {showCart && <Cart />}
       </Container>
     </StyledHeader>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

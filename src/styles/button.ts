@@ -1,7 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const StyledButton = styled.button`
-
   outline: none;
   border: 1px solid;
   border-color: ${(props) => props.theme.button.borderColor};
@@ -14,12 +13,12 @@ export const StyledButton = styled.button`
   font-size: 1rem;
   letter-spacing: 0.7px;
   cursor: pointer;
-  transition: opacity 0.4s linear, color 0.4s linear,
-  background-color 0.4s linear;
+  transition:
+    opacity 0.4s linear,
+    color 0.4s linear,
+    background-color 0.4s linear;
 
   &:hover {
     opacity: 0.65;
   }
-
-
 `

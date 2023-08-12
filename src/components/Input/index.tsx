@@ -1,21 +1,20 @@
-
-import { forwardRef, InputHTMLAttributes } from "react"
-import { StyledFieldset } from "./style";
+import { forwardRef, InputHTMLAttributes } from 'react'
+import { StyledFieldset } from './style'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-    legend?: string;
+  legend?: string
 }
 
-
-const Input = forwardRef<HTMLInputElement, InputProps>(({ legend, type, placeholder, ...rest }, ref) => {
-  return (
-    <StyledFieldset>
-        { legend && <legend>{legend}</legend> }
+const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ legend, type, placeholder, ...rest }, ref) => {
+    return (
+      <StyledFieldset>
+        {legend && <legend>{legend}</legend>}
         <input type={type} placeholder={placeholder} ref={ref} {...rest} />
-    </ StyledFieldset>
-     
-  )
-})
+      </StyledFieldset>
+    )
+  },
+)
 
 export default Input
 

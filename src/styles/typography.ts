@@ -1,32 +1,30 @@
-import styled, { css } from "styled-components";
-import BaseTitle from "../components/BaseTitle";
+import styled, { css } from 'styled-components'
+import BaseTitle from '../components/BaseTitle'
 
-interface iStyledTitleProps{
-  fontSize: string;
-
+interface iStyledTitleProps {
+  fontSize: string
 }
 
 export const StyledTitle = styled(BaseTitle)<iStyledTitleProps>`
   font-weight: bold;
-  ${({fontSize}) => {
-
+  ${({ fontSize }) => {
     switch (fontSize) {
-      case "h1":
+      case 'h1':
         return css`
-            font-size: 2.6rem;
-        `;
-      case "h2":
+          font-size: 2.6rem;
+        `
+      case 'h2':
         return css`
-            font-size: 2.2rem;
-        `;
-      case "h3":
+          font-size: 2.2rem;
+        `
+      case 'h3':
         return css`
-            font-size: 1.8rem;
-        `;  
-      case "h4":
+          font-size: 1.8rem;
+        `
+      case 'h4':
         return css`
-            font-size: 1.4rem;
-        `;    
+          font-size: 1.4rem;
+        `
     }
   }}
 `

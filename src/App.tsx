@@ -1,14 +1,13 @@
-import { useCallback, useContext } from "react";
-import { ThemeProvider } from "styled-components";
-import RoutesMain from "./Routes";
-import { themes } from "./styles/theme";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { UserContext } from "./contexts/UserContext";
+import { useContext } from 'react'
+import { ThemeProvider } from 'styled-components'
+import RoutesMain from './Routes'
+import { themes } from './styles/theme'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { UserContext } from './contexts/UserContext'
 
 function App(): JSX.Element {
-  const { currentTheme, setCurrentTheme, getOpositeTheme } =
-    useContext(UserContext);
+  const { currentTheme } = useContext(UserContext)
 
   return (
     <>
@@ -33,7 +32,7 @@ function App(): JSX.Element {
         theme="light"
       />
     </>
-  );
+  )
 }
 
-export default App;
+export default App

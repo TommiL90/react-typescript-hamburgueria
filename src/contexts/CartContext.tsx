@@ -1,89 +1,89 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { toast } from "react-toastify";
-import { api } from "../services/api";
+import { createContext, useContext, useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
+import { api } from '../services/api'
 import {
   iCartContext,
   iChildrenProps,
   iCurrentCart,
   iGetVerificationproducts,
   iProduct,
-} from "./types";
+} from './types'
 
-export const CartContext = createContext({} as iCartContext);
+export const CartContext = createContext({} as iCartContext)
 
 export const CartProvider = ({ children }: iChildrenProps) => {
-  const [products, setProducts] = useState([] as iProduct[]);
-  const [filteredList, setFilteredList] = useState([] as iProduct[]);
-  const [currentCart, setCurrentCart] = useState([] as iCurrentCart[]);
-  const [showCart, setShowCart] = useState(false);
+  const [products, setProducts] = useState([] as iProduct[])
+  const [filteredList, setFilteredList] = useState([] as iProduct[])
+  const [currentCart, setCurrentCart] = useState([] as iCurrentCart[])
+  const [showCart, setShowCart] = useState(false)
 
   useEffect(() => {
-
     async function loadproducts() {
-      const token = localStorage.getItem("@BurguerKenzie:Token");
+      const token = localStorage.getItem('@BurguerKenzie:Token')
 
       if (!token) {
-        return;
+        return
       }
 
       try {
-        const { data } = await api.get<iGetVerificationproducts[]>("/products", {
-          headers: {
-            Authorization: `Bearer ${token}`,
+        const { data } = await api.get<iGetVerificationproducts[]>(
+          '/products',
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           },
-        });
+        )
 
-        setProducts(data);
+        setProducts(data)
       } catch (error) {
-        console.log(error);
+        console.log(error)
       } finally {
       }
     }
-    loadproducts();
-  }, []);
+    loadproducts()
+  }, [])
 
   function handleAddProduct(product: iProduct) {
-    const productExists: any = currentCart.find((e) => e.id === product.id);
+    const productExists: any = currentCart.find((e) => e.id === product.id)
 
     if (productExists) {
       const upDateCart = currentCart.map((e) => {
         if (e.count) {
-          return e.id === product.id ? { ...e, count: (e.count += 1) } : e;
+          return e.id === product.id ? { ...e, count: (e.count += 1) } : e
         } else {
-          return e;
+          return e
         }
-      });
-      setCurrentCart(upDateCart);
+      })
+      setCurrentCart(upDateCart)
     } else {
-      setCurrentCart((old) => [...old, { ...product, count: 1 }]);
+      setCurrentCart((old) => [...old, { ...product, count: 1 }])
     }
   }
 
   function addSameProduct(productId: number) {
     const upDateCart = currentCart.map((e) =>
-      e.count ? (e.id === productId ? { ...e, count: (e.count += 1) } : e) : e
-    );
-    setCurrentCart(upDateCart);
+      e.count ? (e.id === productId ? { ...e, count: (e.count += 1) } : e) : e,
+    )
+    setCurrentCart(upDateCart)
   }
 
   function subSameProduct(productId: number) {
-    const product = currentCart.find((e) => e.id === productId);
+    const product = currentCart.find((e) => e.id === productId)
 
-    if(product?.count){
-
+    if (product?.count) {
       if (product.count <= 1) {
-        const updateCart = currentCart.filter((e) => e.id !== productId);
-  
-        setCurrentCart(updateCart);
+        const updateCart = currentCart.filter((e) => e.id !== productId)
+
+        setCurrentCart(updateCart)
       } else {
-        const updateCart = currentCart.map((e) => 
-         e.count && e.id === productId ? { ...e, count: (e.count -= 1) } : e
-        );
-  
-        setCurrentCart(updateCart);
+        const updateCart = currentCart.map((e) =>
+          e.count && e.id === productId ? { ...e, count: (e.count -= 1) } : e,
+        )
+
+        setCurrentCart(updateCart)
       }
     }
-
   }
 
   return (
@@ -100,10 +100,9 @@ export const CartProvider = ({ children }: iChildrenProps) => {
         setShowCart,
         addSameProduct,
         subSameProduct,
-
       }}
     >
       {children}
     </CartContext.Provider>
-  );
-};
+  )
+}

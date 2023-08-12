@@ -1,11 +1,10 @@
-import { LogoContainer, LogoBurguer, LogoKenzie } from "./style"
-
-
+import { LogoContainer, LogoBurguer, LogoKenzie } from './style'
 
 const Logo = () => {
   return (
     <LogoContainer>
-        <LogoBurguer>Burguer</LogoBurguer><LogoKenzie>Kenzie</LogoKenzie>
+      <LogoBurguer>Burguer</LogoBurguer>
+      <LogoKenzie>Kenzie</LogoKenzie>
     </LogoContainer>
   )
 }

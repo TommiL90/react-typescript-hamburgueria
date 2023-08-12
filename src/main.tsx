@@ -5,10 +5,9 @@ import App from './App'
 import { UserProvider } from './contexts/UserContext'
 import GlobalStyle from './styles/Global'
 
-
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <GlobalStyle/>
+    <GlobalStyle />
     <BrowserRouter>
       <UserProvider>
         <App />

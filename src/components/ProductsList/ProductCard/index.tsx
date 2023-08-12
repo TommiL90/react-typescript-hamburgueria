@@ -1,22 +1,21 @@
-import { useContext } from "react";
-import { CartContext } from "../../../contexts/CartContext";
-import { StyledButton } from "../../../styles/buttons";
-import { StyledTitle } from "../../../styles/typography";
-import { StyledProductCard } from "./style";
+import { useContext } from 'react'
+import { CartContext } from '../../../contexts/CartContext'
+import { StyledButton } from '../../../styles/buttons'
+import { StyledTitle } from '../../../styles/typography'
+import { StyledProductCard } from './style'
 
-interface iProduct{
- product: {
-  category:string;
-  id: number;
-  img: string;
-  name: string;
-  price: number;
- }
+interface iProduct {
+  product: {
+    category: string
+    id: number
+    img: string
+    name: string
+    price: number
+  }
 }
 
-
 const ProductCard = ({ product }: iProduct) => {
-  const { handleAddProduct } = useContext(CartContext);
+  const { handleAddProduct } = useContext(CartContext)
 
   const { img, name, category, price } = product
 
@@ -38,7 +37,7 @@ const ProductCard = ({ product }: iProduct) => {
         </StyledButton>
       </div>
     </StyledProductCard>
-  );
-};
+  )
+}
 
-export default ProductCard;
+export default ProductCard
