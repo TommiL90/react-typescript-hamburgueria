@@ -9,17 +9,17 @@ export interface iDataRegister {
   repeatPassword?: string
 }
 
-export interface iDataResponseRegister {
-  accessToken: string
-  user: iUserProps
-}
-
 export interface iUserProps {
   email: string
   name: string
   id: number | string
   password?: string
   repeatPassword?: string
+}
+
+export interface iDataResponseRegister {
+  accessToken: string
+  user: iUserProps
 }
 
 export interface iDataLogin {
@@ -30,10 +30,6 @@ export interface iDataLogin {
 export interface iDataResponseLogin {
   accessToken: string
   user: iUserProps
-}
-
-export interface iChildrenProps {
-  children: React.ReactNode
 }
 
 export interface iProduct {

@@ -1,4 +1,4 @@
-import { forwardRef, InputHTMLAttributes } from 'react'
+import { forwardRef, InputHTMLAttributes, Ref } from 'react'
 import { StyledFieldset } from './style'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -6,7 +6,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ legend, type, placeholder, ...rest }, ref) => {
+  ({ legend, type, placeholder, ...rest }, ref: Ref<HTMLInputElement>) => {
     return (
       <StyledFieldset>
         {legend && <legend>{legend}</legend>}
@@ -16,18 +16,5 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   },
 )
 
+Input.displayName = 'Input'
 export default Input
-
-// onChange={(event) => callback(event.target.value
-
-/* alt =>
-interface InputProps{
-  legen?: string;
-  register: UseFormRegisterReturn;
-
-}
-
-no Input => register={register("algo")}
-<input {...register} />
-
-*/

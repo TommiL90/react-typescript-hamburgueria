@@ -1,6 +1,6 @@
 import { StyledCard } from './style'
 import { FaTrash } from 'react-icons/fa'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { CartContext } from '../../../contexts/CartContext'
 
 interface iCard {

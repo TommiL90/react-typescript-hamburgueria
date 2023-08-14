@@ -13,17 +13,12 @@ import { useNavigate } from 'react-router-dom'
 const Header = () => {
   const navigate = useNavigate()
   const { currentCart } = useContext(CartContext)
-  const { showCart, setShowCart, products, setFilteredList } =
-    useContext(CartContext)
+  const { showCart, setShowCart, setFilteredList } = useContext(CartContext)
   const [showFormSearh, setShowFormSearch] = useState(false)
 
-  const countSelectProducts = currentCart.reduce((av, cv) => {
-    if (cv.count) {
-      return av + cv.count
-    } else {
-      return 0
-    }
-  }, 0)
+  const countSelectProducts = currentCart
+    ? currentCart.reduce((av, cv) => (cv.count ? av + cv.count : av), 0)
+    : 0
 
   const handleReset = () => {
     setFilteredList([])
@@ -58,7 +53,7 @@ const Header = () => {
                 <FiSearch />
               </IconBtn>
               <div className="cart">
-                {currentCart.length >= 1 && <p>{countSelectProducts}</p>}
+                <p>{countSelectProducts}</p>
                 <IconBtn onClick={() => setShowCart(true)}>
                   <FaShoppingCart />
                 </IconBtn>
